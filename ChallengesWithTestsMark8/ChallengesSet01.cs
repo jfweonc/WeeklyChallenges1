@@ -19,6 +19,7 @@ namespace ChallengesWithTestsMark8
         public double Subtract(double minuend, double subtrahend)
         {
             return minuend - subtrahend;
+            
         }
 
         public int Add(int number1, int number2)
@@ -50,7 +51,7 @@ namespace ChallengesWithTestsMark8
 
         public string GetHey()
         {
-            return $"Hey {GetHey}"; 
+            return $"Hey hi {GetHey}"; 
         }
     }
 }
