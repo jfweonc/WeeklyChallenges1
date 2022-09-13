@@ -46,7 +46,6 @@ namespace ChallengesWithTestsMark8
 
         public string GetGreeting(string nameOfPerson)
         {
-            if (nam)
             return $"Hello, {nameOfPerson}!";
         }
 
