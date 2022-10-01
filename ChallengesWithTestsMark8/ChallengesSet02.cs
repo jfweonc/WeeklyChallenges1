@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq; 
 
 namespace ChallengesWithTestsMark8
 {
@@ -7,8 +8,8 @@ namespace ChallengesWithTestsMark8
     {
         public bool CharacterIsALetter(char c)
         {
-            var string = "abcdefghijklmnopqrstuvwxyz"; 
-            return string.contains(c); 
+            var string1 = "abcdefghijklmnopqrstuvwxyz";
+            return string1.Contains(c.ToString().ToLower()); 
         }
 
         public bool CountOfElementsIsEven(string[] vals)
@@ -23,12 +24,13 @@ namespace ChallengesWithTestsMark8
 
         public bool IsNumberOdd(int num)
         {
-            return (number%2 == 1);
+            return (num%2 != 0);
         }
 
         public double SumOfMinAndMax(IEnumerable<double> numbers)
         {
-            return (numbers.Max + numbers.Min);
+            if(numbers == null || numbers.ToArray().Length == 0) { return 0; }
+            return (numbers.Max() + numbers.Min());
         }
 
         public int GetLengthOfShortestString(string str1, string str2)
@@ -38,22 +40,26 @@ namespace ChallengesWithTestsMark8
 
         public int Sum(int[] numbers)
         {
-            return numbers.Sum;
+            if (numbers == null) { return 0; }
+            return numbers.Sum();
         }
 
         public int SumEvens(int[] numbers)
         {
-            return numbers.Where(x => x%2==0).Sum;
+            if( numbers == null || numbers.ToArray().Length == 0) { return 0; }
+            return numbers.Where(x => x%2==0).Sum();
         }
 
         public bool IsSumOdd(List<int> numbers)
         {
-            return numbers.Sum % 2 == 0;
+            if (numbers==null || numbers.ToArray().Length == 0) { return false; }
+            return (numbers.Sum()) % 2 != 0;
         }
 
         public long CountOfPositiveOddsBelowNumber(long number)
         {
-            return Math.Floor(number/2);
+            if (number < 1) { return 0; }
+            return number / 2; 
         }
     }
 }

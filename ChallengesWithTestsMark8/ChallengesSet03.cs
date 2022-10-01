@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace ChallengesWithTestsMark8
 {
@@ -7,12 +8,18 @@ namespace ChallengesWithTestsMark8
     {
         public bool ArrayContainsAFalse(bool[] vals)
         {   // if false exists in array, it will return true; if not, it will return false
-            return vals.Exists(x => x == false);
+            return vals.Contains(false);
         }
 
         public bool IsSumOfOddsOdd(IEnumerable<int> numbers)
-        {   // count how many odd numbers
-            var countOfOdd = numbers.Count(x => x % 2 == 1); 
+        {   
+            if (numbers == null)
+            {
+                return false;
+            }
+
+            // count how many odd numbers
+            var countOfOdd = numbers.Count(x => x % 2 != 0);
             // if the count of odd numbers is odd, then the sum is odd. 
             return countOfOdd%2 == 1;
         }
@@ -52,7 +59,8 @@ namespace ChallengesWithTestsMark8
 
         public decimal Divide(decimal dividend, decimal divisor)
         {
-            return dividend/divisor;
+            if(divisor == 0) { return 0; }
+            else return dividend/divisor;
         }
 
         public int LastMinusFirst(int[] nums)
@@ -63,20 +71,27 @@ namespace ChallengesWithTestsMark8
         public int[] GetOddsBelow100()
         {
             // declare variable output, initialize it with 1. 
-            var output = 1; 
+            var output = 1;
+            var outputArray = new int[50]; 
+            var i = 0; 
             // print all odd numbers from 1 to 99. each time increment output by 2. 
             while(output < 100)
             {
                 Console.WriteLine(output);
+                outputArray[i] = output;
+                i++; 
                 output += 2; 
             }
+            return outputArray; 
         }
 
         public void ChangeAllElementsToUppercase(string[] words)
         {
-            foreach(var word in words)
+            int i = 0;
+            foreach (var word in words)
             {
-                word = word.ToUpper();
+                words[i] = word.ToUpper();
+                i++; 
             }
         }
     }
